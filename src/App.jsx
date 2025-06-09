@@ -9,7 +9,9 @@ import EncontrarSection from './assets/components/EncontrarSection';
 import AyudaSection from './assets/components/AyudaSection';
 import Footer from './assets/components/Footer';
 import RouterPage from './assets/Pages/RouterPage';
-import { useEffect } from 'react';
+import Login from './assets/components/Login';
+import RegistroEmprendimiento from './assets/components/RegistroEmprendimiento';
+import { useEffect, useState } from 'react';
 
 function Home() {
   useEffect(() => {
@@ -33,19 +35,46 @@ function Home() {
 }
 
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <BrowserRouter>
       <div className="App">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Router" element={<RouterPage />} />
-          </Routes>
-        </main>
+        <Navbar onLoginClick={() => setShowLogin(true)} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeroSection />
+                <EmprendedoresSection
+                  onLoginClick={() => setShowLogin(true)}
+                  onRegistroClick={() => window.location.assign('/registro')}
+                />
+                <EncontrarSection />
+                <AyudaSection />
+              </>
+            }
+          />
+          <Route
+            path="/registro"
+            element={<RegistroEmprendimiento />}
+          />
+        </Routes>
         <Footer />
+        {showLogin && (
+          <Login
+            onClose={() => setShowLogin(false)}
+            onLogin={() => setShowLogin(false)}
+            onRegistro={() => {
+              setShowLogin(false);
+              window.location.assign('/registro');
+            }}
+          />
+        )}
       </div>
     </BrowserRouter>
   );
 }
+
 export default App;

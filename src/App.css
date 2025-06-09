@@ -392,3 +392,51 @@ footer p {
 .login-container a:hover {
   text-decoration: underline;
 }
+
+/* Botones CTA reutilizables */
+.cta-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid;
+  font-family: "Kanit", sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.3s, background 0.3s, border-color 0.3s;
+}
+
+.cta-btn-primary {
+  color: #6400E0;
+  border-color: #6400E0;
+  background: transparent;
+}
+
+.cta-btn-primary:hover, .cta-btn-primary:focus {
+  color: #fff;
+  background: #6400E0;
+}
+
+.cta-btn-success {
+  color: #198754;
+  border-color: #198754;
+  background: transparent;
+}
+
+.cta-btn-success:hover, .cta-btn-success:focus {
+  color: #fff;
+  background: #198754;
+}
+
+/* Quitar movimiento en login y registro */
+.login-container .card,
+.card.p-4 {
+  transition: none !important;
+  transform: none !important;
+}
+
+#emprendedores .text-center.mb-4.mt-5 {
+  margin-top: 3rem !important;
+}

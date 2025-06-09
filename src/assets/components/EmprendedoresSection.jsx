@@ -58,14 +58,13 @@ const benefits = [
   }
 ];
 
-const EmprendedoresSection = () => {
+const EmprendedoresSection = ({ onLoginClick, onRegistroClick }) => {
   return (
     <section id="emprendedores" className="py-5 bg-light">
       <div className="container">
         <div className="row g-4">
           <h1 className="titulo-principal text-center">Beneficios para Emprendedores</h1>
           <p className="lead text-center">¡Maximiza tu visibilidad y conecta con más clientes!</p>
-          
           {benefits.map((benefit, index) => (
             <div key={index} className="col-md-6 col-lg-4">
               <BenefitCard 
@@ -75,6 +74,20 @@ const EmprendedoresSection = () => {
               />
             </div>
           ))}
+        </div>
+        <div className="text-center mb-4 mt-5">
+          <button
+            className="btn cta-btn me-2 cta-btn-primary"
+            onClick={onLoginClick}
+          >
+            Ingresar a mi cuenta
+          </button>
+          <button
+            className="btn cta-btn cta-btn-success"
+            onClick={onRegistroClick}
+          >
+            Registrar emprendimiento
+          </button>
         </div>
       </div>
     </section>
