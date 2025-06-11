@@ -25,6 +25,8 @@ const initialState = {
   rut: '',
   imagen: null,
   catalogo: '',
+  email: '',
+  password: '', 
 };
 
 const RegistroEmprendimiento = ({ onClose }) => {
@@ -128,6 +130,29 @@ const RegistroEmprendimiento = ({ onClose }) => {
                       <label className="form-label">Catálogo (documento o link)</label>
                       <input type="file" className="form-control mb-2" name="catalogo" accept=".pdf,.doc,.docx,.xls,.xlsx" onChange={handleChange} />
                       <input type="url" className="form-control" name="catalogo" placeholder="O ingresa un link de red social o web" value={form.catalogo} onChange={handleChange} />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Correo electrónico o nombre de usuario</label>
+                      <input
+                        type="email"
+                        className="form-control"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Contraseña</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="password"
+                        value={form.password}
+                        onChange={handleChange}
+                        required
+                        minLength={6}
+                      />
                     </div>
                     <button type="submit" className="btn cta-btn cta-btn-primary">Registrar</button>
                   </form>

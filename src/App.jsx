@@ -8,7 +8,6 @@ import EmprendedoresSection from './assets/components/EmprendedoresSection';
 import EncontrarSection from './assets/components/EncontrarSection';
 import AyudaSection from './assets/components/AyudaSection';
 import Footer from './assets/components/Footer';
-import RouterPage from './assets/Pages/RouterPage';
 import Login from './assets/components/Login';
 import RegistroEmprendimiento from './assets/components/RegistroEmprendimiento';
 import { useEffect, useState } from 'react';
