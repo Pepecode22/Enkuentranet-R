@@ -63,7 +63,7 @@ const EmprendedoresSection = ({ onLoginClick, onRegistroClick }) => {
     <section id="emprendedores" className="py-5 bg-light">
       <div className="container">
         <div className="row g-4">
-          <h1 className="titulo-principal text-center">Beneficios para Emprendedores</h1>
+          <h2 className="titulo-principal text-center">Beneficios para Emprendedores</h2>
           <p className="lead text-center">¡Maximiza tu visibilidad y conecta con más clientes!</p>
           {benefits.map((benefit, index) => (
             <div key={index} className="col-md-6 col-lg-4">

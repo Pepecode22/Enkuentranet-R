@@ -229,23 +229,6 @@ h3 {
   margin: 15px 0;
 }
 
-/* Map Section */
-.map-placeholder {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.category-list {
-  list-style: none;
-  padding: 0;
-}
-
-.category-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
-}
-
 /* Accordion */
 .accordion-button {
   font-weight: 500;

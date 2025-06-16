@@ -39,7 +39,7 @@ const AyudaSection = () => {
       <div className="container">
         <div className="text-center mb-5">
           <h2>Centro de Ayuda</h2>
-          <p className="lead">Encuentra respuestas o contáctanos directamente</p>
+          <p className="lead">Encuentra respuestas o contáctanos directamente.</p>
         </div>
         
         <div className="row g-4">
