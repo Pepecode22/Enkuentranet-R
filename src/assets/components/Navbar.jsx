@@ -31,7 +31,17 @@ const Navbar = ({ onLoginClick }) => {
     <nav className="navbar navbar-expand-lg bg-light fixed-top">
       <div className="container-fluid">
         <div className="col-md-3 text-center">
-          <RouterLink className="navbar-brand" to="/">
+          <RouterLink
+            className="navbar-brand"
+            to="/"
+            onClick={e => {
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+              // Si no está en home, deja que RouterLink navegue normalmente
+            }}
+          >
             <img src="src/assets/images/logo.svg" alt="Logo" width="150" className="align-top" />
           </RouterLink>
           <button 
@@ -53,6 +63,7 @@ const Navbar = ({ onLoginClick }) => {
                     spy={false}
                     smooth={true}
                     duration={500}
+                    offset={-80}
                     className={`nav-link ${activeLink === 'emprendedores' ? 'active' : ''}`}
                   >
                     Emprendedores
@@ -64,6 +75,7 @@ const Navbar = ({ onLoginClick }) => {
                     spy={false}
                     smooth={true}
                     duration={500}
+                    offset={-80}
                     className={`nav-link ${activeLink === 'encontrar' ? 'active' : ''}`}
                   >
                     Encontrar
@@ -75,6 +87,7 @@ const Navbar = ({ onLoginClick }) => {
                     spy={false}
                     smooth={true}
                     duration={500}
+                    offset={-80}
                     className={`nav-link ${activeLink === 'ayuda' ? 'active' : ''}`}
                   >
                     Ayuda

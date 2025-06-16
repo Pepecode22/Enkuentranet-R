@@ -1,0 +1,114 @@
+.encontrar-section {
+  background: #fff;
+  padding: 0;
+  min-height: 600px;
+}
+
+.encontrar-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 24px rgba(100,0,224,0.07);
+  margin: 40px auto 0 auto;
+  max-width: 1100px;
+  background: #f8f9fa;
+}
+
+.categorias-menu {
+  background: #6400E0;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+  border-radius: 18px 0 0 18px;
+  box-shadow: 2px 0 8px rgba(100,0,224,0.08);
+}
+
+.categorias-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  height: 100%;
+  overflow-y: auto;
+  max-height: 520px;
+}
+
+.categorias-menu li {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.categorias-menu li:hover {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(100,0,224,0.15);
+}
+
+.categorias-menu li svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+  fill: #fff; /* svg blanco */
+  transition: fill 0.2s;
+}
+
+.categorias-menu li:hover svg {
+  fill: #6400E0; /* Morado al hacer hover */
+  filter: none;
+}
+
+.mapa-zona {
+  flex: 1;
+  background: #eaeaea;
+  min-height: 600px;
+  border-radius: 0 18px 18px 0;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .encontrar-container {
+    flex-direction: column;
+    max-width: 100%;
+    min-height: 400px;
+  }
+  .categorias-menu {
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 2px 8px rgba(100,0,224,0.08);
+    padding: 0 16px;
+  }
+  .categorias-menu ul {
+    flex-direction: row;
+    gap: 18px;
+    max-height: none;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+  }
+  .categorias-menu li {
+    width: 48px;
+    height: 48px;
+    margin: 0 4px;
+  }
+  .mapa-zona {
+    border-radius: 0 0 18px 18px;
+    min-height: 300px;
+  }
+}
