@@ -54,8 +54,8 @@
 }
 
 .categoria-icon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   filter: brightness(0) invert(1); /* blanco */
   transition: filter 0.2s;
   display: block;
@@ -74,7 +74,6 @@
   flex: 1;
   background: #eaeaea;
   min-height: 600px;
-  border-radius: 0 18px 18px 0;
   position: relative;
 }
 

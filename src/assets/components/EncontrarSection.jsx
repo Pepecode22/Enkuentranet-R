@@ -1,4 +1,5 @@
 import './EncontrarSection.css';
+import MapboxMap from './MapBoxMap.jsx';
 
 import ArriendoEspacios from '../images/Categorias/ArriendoEspacios.svg';
 import Educacion from '../images/Categorias/Educacion.svg';
@@ -9,6 +10,7 @@ import Oficios from '../images/Categorias/Oficios.svg';
 import ServiciosHogar from '../images/Categorias/ServiciosHogar.svg';
 import Tecnologia from '../images/Categorias/Tecnologia.svg';
 import Transporte from '../images/Categorias/Transporte.svg';
+
 
 const categorias = [
   { id: 'arriendo', nombre: 'Arriendo de Espacios', icon: ArriendoEspacios },
@@ -40,7 +42,7 @@ const EncontrarSection = () => {
         </aside>
         {/* Zona de mapa */}
         <div className="mapa-zona">
-          {/* Aquí irá el mapa en el futuro */}
+          <MapboxMap latitude={-33.438} longitude={-70.651} zoom={10}/>
         </div>
       </div>
     </section>
