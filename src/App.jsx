@@ -25,9 +25,9 @@ function Home() {
 
   return (
     <>
+      <EncontrarSection />
       <HeroSection />
       <EmprendedoresSection />
-      <EncontrarSection />
       <AyudaSection />
     </>
   );
@@ -46,11 +46,11 @@ function App() {
             element={
               <>
                 <HeroSection />
+                <EncontrarSection />
                 <EmprendedoresSection
                   onLoginClick={() => setShowLogin(true)}
                   onRegistroClick={() => window.location.assign('/registro')}
                 />
-                <EncontrarSection />
                 <AyudaSection />
               </>
             }
