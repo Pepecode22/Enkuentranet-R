@@ -50,7 +50,7 @@ const initialState = {
   catalogo: '',
   email: '',
   password: '', 
-  categoria: '', // <-- NUEVO
+  categoria: '',
 };
 
 const RegistroEmprendimiento = ({ onClose }) => {

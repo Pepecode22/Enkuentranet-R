@@ -59,18 +59,6 @@ const Navbar = ({ onLoginClick }) => {
               <>
                 <li className="nav-item">
                   <ScrollLink
-                    to="emprendedores"
-                    spy={false}
-                    smooth={true}
-                    duration={500}
-                    offset={-80}
-                    className={`nav-link ${activeLink === 'emprendedores' ? 'active' : ''}`}
-                  >
-                    Emprendedores
-                  </ScrollLink>
-                </li>
-                <li className="nav-item">
-                  <ScrollLink
                     to="encontrar"
                     spy={false}
                     smooth={true}
@@ -79,6 +67,18 @@ const Navbar = ({ onLoginClick }) => {
                     className={`nav-link ${activeLink === 'encontrar' ? 'active' : ''}`}
                   >
                     Encontrar
+                  </ScrollLink>
+                </li>
+                <li className="nav-item">
+                  <ScrollLink
+                    to="emprendedores"
+                    spy={false}
+                    smooth={true}
+                    duration={500}
+                    offset={-80}
+                    className={`nav-link ${activeLink === 'emprendedores' ? 'active' : ''}`}
+                  >
+                    Emprendedores
                   </ScrollLink>
                 </li>
                 <li className="nav-item">
