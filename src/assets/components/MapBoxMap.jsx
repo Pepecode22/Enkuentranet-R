@@ -30,7 +30,7 @@ const MapboxMap = () => {
   return (
     <div style={{
       width: '100%',
-      height: '700px',
+      height: '100%',
       overflow: 'hidden',
     }}>
       <Map
@@ -42,7 +42,7 @@ const MapboxMap = () => {
         onClick={MarkerClick}
       >
         <GeolocateControl
-          position='top-left'
+          position='top-right'
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
           showUserHeading={true}
