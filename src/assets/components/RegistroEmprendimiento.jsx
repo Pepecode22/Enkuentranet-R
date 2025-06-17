@@ -1,5 +1,16 @@
 import { useState } from 'react';
 
+// Importa los SVGs
+import ArriendoEspacios from '../images/Categorias/ArriendoEspacios.svg';
+import Educacion from '../images/Categorias/Educacion.svg';
+import Estetica from '../images/Categorias/Estetica.svg';
+import Familia from '../images/Categorias/Familia.svg';
+import Gastronomia from '../images/Categorias/Gastronomia.svg';
+import Oficios from '../images/Categorias/Oficios.svg';
+import ServiciosHogar from '../images/Categorias/ServiciosHogar.svg';
+import Tecnologia from '../images/Categorias/Tecnologia.svg';
+import Transporte from '../images/Categorias/Transporte.svg';
+
 // Validador de RUT
 const Fn = {
   validaRut: function (rutCompleto) {
@@ -18,6 +29,18 @@ const Fn = {
   }
 };
 
+const categorias = [
+  { id: 'arriendo', nombre: 'Arriendo de Espacios', icon: ArriendoEspacios },
+  { id: 'educacion', nombre: 'Educación', icon: Educacion },
+  { id: 'estetica', nombre: 'Estética', icon: Estetica },
+  { id: 'familia', nombre: 'Familia', icon: Familia },
+  { id: 'gastronomia', nombre: 'Gastronomía', icon: Gastronomia },
+  { id: 'oficios', nombre: 'Oficios', icon: Oficios },
+  { id: 'servicioshogar', nombre: 'Servicios para el Hogar', icon: ServiciosHogar },
+  { id: 'tecnologia', nombre: 'Tecnología', icon: Tecnologia },
+  { id: 'transporte', nombre: 'Transporte', icon: Transporte },
+];
+
 const initialState = {
   nombre: '',
   direccion: '',
@@ -27,6 +50,7 @@ const initialState = {
   catalogo: '',
   email: '',
   password: '', 
+  categoria: '', // <-- NUEVO
 };
 
 const RegistroEmprendimiento = ({ onClose }) => {
@@ -154,6 +178,33 @@ const RegistroEmprendimiento = ({ onClose }) => {
                         minLength={6}
                       />
                     </div>
+                    <div className="mb-3">
+                      <label className="form-label">Categoría</label>
+                      <select
+                        className="form-select"
+                        name="categoria"
+                        value={form.categoria}
+                        onChange={handleChange}
+                        required
+                      >
+                        <option value="">Selecciona una categoría</option>
+                        {categorias.map(cat => (
+                          <option key={cat.id} value={cat.id}>
+                            {cat.nombre}
+                          </option>
+                        ))}
+                      </select>
+                      {/* Muestra el ícono de la categoría seleccionada */}
+                      {form.categoria && (
+                        <div className="mt-2">
+                          <img
+                            src={categorias.find(c => c.id === form.categoria)?.icon}
+                            alt={categorias.find(c => c.id === form.categoria)?.nombre}
+                            style={{ width: 40, height: 40 }}
+                          />
+                        </div>
+                      )}
+                    </div>
                     <button type="submit" className="btn cta-btn cta-btn-primary">Registrar</button>
                   </form>
                 ) : (
@@ -163,6 +214,17 @@ const RegistroEmprendimiento = ({ onClose }) => {
                     <p><b>Dirección:</b> {perfil.direccion}</p>
                     <p><b>Teléfono:</b> {perfil.telefono}</p>
                     <p><b>RUT:</b> {perfil.rut}</p>
+                    <p>
+                      <b>Categoría:</b>{" "}
+                      {categorias.find(c => c.id === perfil.categoria)?.nombre}
+                      {perfil.categoria && (
+                        <img
+                          src={categorias.find(c => c.id === perfil.categoria)?.icon}
+                          alt={categorias.find(c => c.id === perfil.categoria)?.nombre}
+                          style={{ width: 32, height: 32, marginLeft: 8, verticalAlign: 'middle' }}
+                        />
+                      )}
+                    </p>
                     <button className="btn btn-warning me-2" onClick={handleEdit}>Editar</button>
                     <button className="btn btn-danger" onClick={handleDelete}>Eliminar</button>
                   </div>

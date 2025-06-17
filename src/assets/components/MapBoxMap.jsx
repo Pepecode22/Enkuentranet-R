@@ -26,12 +26,12 @@ const MapboxMap = () => {
     setMarkers(prev => [...prev, newMarker]);
   };
 
+  
   return (
     <div style={{
       width: '100%',
       height: '700px',
       overflow: 'hidden',
-      boxShadow: '0 8px 8px #aaa'
     }}>
       <Map
         ref={mapRef}
@@ -61,3 +61,5 @@ const MapboxMap = () => {
 };
 
 export default MapboxMap;
+
+
