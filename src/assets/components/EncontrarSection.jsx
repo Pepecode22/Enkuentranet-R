@@ -26,7 +26,7 @@ const categorias = [
 
 const EncontrarSection = () => {
   return (
-    <section id="encontrar" className="encontrar-section">
+    <section id="encontrar" className="encontrar-section p-4">
       <h2 className="titulo-principal text-center">Encuentra lo que necesitas</h2>
       <p className="lead text-center">Puedes buscar por categorías o zona.</p>
       <div className="encontrar-container">
