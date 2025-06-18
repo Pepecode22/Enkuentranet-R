@@ -10,6 +10,7 @@ import Oficios from '../images/Categorias/Oficios.svg';
 import ServiciosHogar from '../images/Categorias/ServiciosHogar.svg';
 import Tecnologia from '../images/Categorias/Tecnologia.svg';
 import Transporte from '../images/Categorias/Transporte.svg';
+import { useEffect, useState } from 'react';
 
 
 const categorias = [
@@ -25,16 +26,19 @@ const categorias = [
 ];
 
 const EncontrarSection = () => {
+  const [selectedTab, setSelectedTab] = useState('arriendo');
+
   return (
     <section id="encontrar" className="encontrar-section">
       <h2 className="titulo-principal text-center">Encuentra productos y servicios en tu barrio</h2>
       <p className="lead text-center">Más de 1.000 emprendedores disponibles en nuestra red.</p>
+      <p className="lead text-center">selected state: {selectedTab} </p>
       <div className="encontrar-container">
         {/* Menú lateral */}
         <aside className="categorias-menu">
           <ul>
             {categorias.map(cat => (
-              <li key={cat.id} id={cat.id} title={cat.nombre}>
+              <li key={cat.id} id={cat.id} title={cat.nombre} onClick={() => setSelectedTab(cat.id)} className={selectedTab === cat.id ? 'active' : ''}>
                 <img src={cat.icon} alt={cat.nombre} className="categoria-icon" />
               </li>
             ))}
@@ -42,7 +46,7 @@ const EncontrarSection = () => {
         </aside>
         {/* Zona de mapa */}
         <div className="mapa-zona">
-          <MapboxMap latitude={-33.438} longitude={-70.651} zoom={10}/>
+          <MapboxMap latitude={-33.438} longitude={-70.651} zoom={10} selectedTab={selectedTab} />
         </div>
       </div>
     </section>
