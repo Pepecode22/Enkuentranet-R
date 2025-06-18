@@ -26,9 +26,9 @@ const categorias = [
 
 const EncontrarSection = () => {
   return (
-    <section id="encontrar" className="encontrar-section p-4">
-      <h2 className="titulo-principal text-center">Encuentra lo que necesitas</h2>
-      <p className="lead text-center">Puedes buscar por categorías o zona.</p>
+    <section id="encontrar" className="encontrar-section">
+      <h2 className="titulo-principal text-center">Encuentra productos y servicios en tu barrio</h2>
+      <p className="lead text-center">Más de 1.000 emprendedores disponibles en nuestra red.</p>
       <div className="encontrar-container">
         {/* Menú lateral */}
         <aside className="categorias-menu">

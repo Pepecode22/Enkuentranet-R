@@ -6,9 +6,9 @@ const HeroSection = () => {
     <section id="home" className="hero-section">
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-lg-6">
-            <h1>Conectando emprendedores con su comunidad</h1>
-            <p className="lead">Descubre productos y servicios locales cerca de ti</p>
+          <div className="col-lg-5">
+            <h1>Conectando emprendedores con la comunidad</h1>
+            <p className="lead">Descubre productos y servicios locales cerca de ti o promociona tu emprendimiento en nuestra página. ¡Es completamente gratuito!</p>
             <div className="cta-buttons">
               <Link 
                 to="emprendedores" 
@@ -39,6 +39,21 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .hero-section {
+          margin-bottom: 0; /* Reduce or remove bottom margin */
+          padding-bottom: 0; /* Reduce or remove bottom padding */
+        }
+
+        .hero-section + .encontrar {
+          margin-top: 0;
+        }
+
+        .encontrar {
+          margin-top: 0; /* Reduce or remove top margin */
+          padding-top: 0; /* Reduce or remove top padding */
+        }
+      `}</style>
     </section>
   );
 };
