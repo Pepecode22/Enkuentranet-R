@@ -6,14 +6,31 @@ const Login = ({ onClose, onLogin, onRegistro }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError('Por favor completa todos los campos');
       return;
     }
     setError('');
-    onLogin();
+    // Llamada al backend
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.msg || 'Error al iniciar sesión');
+        return;
+      }
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      onLogin();
+    } catch (err) {
+      setError('Error de conexión');
+    }
   };
 
   return (

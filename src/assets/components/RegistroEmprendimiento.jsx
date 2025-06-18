@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 // Importa los SVGs
 import ArriendoEspacios from '../images/Categorias/ArriendoEspacios.svg';
@@ -53,7 +53,7 @@ const initialState = {
   categoria: '',
 };
 
-const RegistroEmprendimiento = ({ onClose }) => {
+const RegistroEmprendimiento = ({ onClose, onRegistroExitoso }) => {
   const [form, setForm] = useState(initialState);
   const [rutValido, setRutValido] = useState(true);
   const [error, setError] = useState('');
@@ -61,6 +61,7 @@ const RegistroEmprendimiento = ({ onClose }) => {
     const data = localStorage.getItem('perfilEmprendimiento');
     return data ? JSON.parse(data) : null;
   });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = e => {
     const { name, value, files } = e.target;
@@ -72,18 +73,33 @@ const RegistroEmprendimiento = ({ onClose }) => {
     if (name === 'rut') setRutValido(true);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    if (!Fn.validaRut(form.rut)) {
-      setRutValido(false);
-      setError('RUT inválido. Intenta nuevamente.');
-      return;
-    }
-    setRutValido(true);
     setError('');
-    localStorage.setItem('perfilEmprendimiento', JSON.stringify(form));
-    setPerfil(form);
-    alert('¡Perfil registrado!');
+    setLoading(true);
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.msg || 'Error al registrar');
+        setLoading(false);
+        return;
+      }
+      // Guardar usuario y token en localStorage
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('token', data.token);
+      setLoading(false);
+      if (onRegistroExitoso) onRegistroExitoso();
+      // Redirigir al home
+      window.location.assign('/');
+    } catch (err) {
+      setError('Error de conexión');
+      setLoading(false);
+    }
   };
 
   const handleDelete = () => {
@@ -205,7 +221,10 @@ const RegistroEmprendimiento = ({ onClose }) => {
                         </div>
                       )}
                     </div>
-                    <button type="submit" className="btn cta-btn cta-btn-primary">Registrar</button>
+                    {error && <div className="text-danger mb-3">{error}</div>}
+                    <button type="submit" className="btn cta-btn cta-btn-primary" disabled={loading}>
+                      {loading ? 'Registrando...' : 'Registrar'}
+                    </button>
                   </form>
                 ) : (
                   <div>

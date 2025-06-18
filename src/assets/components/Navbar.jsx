@@ -9,7 +9,7 @@ const Navbar = ({ onLoginClick }) => {
   useEffect(() => {
     if (location.pathname !== '/') return;
     const handleScroll = () => {
-      const sections = ['home', 'emprendedores', 'encontrar', 'ayuda'];
+      const sections = ['home', 'encontrar', 'emprendedores', 'ayuda'];
       const scrollPosition = window.scrollY + 100;
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -39,7 +39,6 @@ const Navbar = ({ onLoginClick }) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }
-              // Si no está en home, deja que RouterLink navegue normalmente
             }}
           >
             <img src="src/assets/images/logo.svg" alt="Logo" width="150" className="align-top" />
@@ -97,10 +96,10 @@ const Navbar = ({ onLoginClick }) => {
             ) : (
               <>
                 <li className="nav-item">
-                  <RouterLink className="nav-link" to="/">Emprendedores</RouterLink>
+                  <RouterLink className="nav-link" to="/">Encontrar</RouterLink>
                 </li>
                 <li className="nav-item">
-                  <RouterLink className="nav-link" to="/">Encontrar</RouterLink>
+                  <RouterLink className="nav-link" to="/">Emprendedores</RouterLink>
                 </li>
                 <li className="nav-item">
                   <RouterLink className="nav-link" to="/">Ayuda</RouterLink>

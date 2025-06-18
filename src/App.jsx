@@ -35,6 +35,16 @@ function Home() {
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
+  const [user, setUser] = useState(() => {
+    const u = localStorage.getItem('user');
+    return u ? JSON.parse(u) : null;
+  });
+
+  const handleLogin = () => {
+    const u = localStorage.getItem('user');
+    setUser(u ? JSON.parse(u) : null);
+    setShowLogin(false);
+  };
 
   return (
     <BrowserRouter>
@@ -64,7 +74,7 @@ function App() {
         {showLogin && (
           <Login
             onClose={() => setShowLogin(false)}
-            onLogin={() => setShowLogin(false)}
+            onLogin={handleLogin}
             onRegistro={() => {
               setShowLogin(false);
               window.location.assign('/registro');
