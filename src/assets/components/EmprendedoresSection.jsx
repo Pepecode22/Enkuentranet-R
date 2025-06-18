@@ -66,7 +66,7 @@ const EmprendedoresSection = ({ onLoginClick, onRegistroClick }) => {
           <h2 className="titulo-principal text-center">Beneficios para Emprendedores</h2>
           <p className="lead text-center">¡Maximiza tu visibilidad y conecta con más clientes!</p>
           {benefits.map((benefit, index) => (
-            <div key={index} className="col-md-6 col-lg-4">
+            <div key={index} className="col-md-4 col-lg-4">
               <BenefitCard 
                 icon={benefit.icon}
                 title={benefit.title}
