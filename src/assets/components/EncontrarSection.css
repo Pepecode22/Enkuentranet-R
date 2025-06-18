@@ -2,7 +2,7 @@
   background: #fff;
   padding: 0;
   min-height: calc(100vh - 60px);
-  margin: 60px 0 0 0;
+  margin: 60px 0 60px 0;
 }
 
 .encontrar-container {
@@ -68,6 +68,15 @@
 
 .categorias-menu li:hover .categoria-icon {
   filter: none; /* vuelve a color original (morado) si el SVG es morado */
+}
+
+.categorias-menu li.active {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(100,0,224,0.15);
+}
+
+.categorias-menu li.active .categoria-icon {
+  filter: none;
 }
 
 .mapa-zona {

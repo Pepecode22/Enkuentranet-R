@@ -32,7 +32,6 @@ const EncontrarSection = () => {
     <section id="encontrar" className="encontrar-section">
       <h2 className="titulo-principal text-center">Encuentra productos y servicios en tu barrio</h2>
       <p className="lead text-center">Más de 1.000 emprendedores disponibles en nuestra red.</p>
-      <p className="lead text-center">selected state: {selectedTab} </p>
       <div className="encontrar-container">
         {/* Menú lateral */}
         <aside className="categorias-menu">

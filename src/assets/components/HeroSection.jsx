@@ -15,6 +15,7 @@ const HeroSection = () => {
                 spy={true} 
                 smooth={true} 
                 duration={500} 
+                offset={-80}
                 className="btn btn-primary"
               >
                 Soy Emprendedor
@@ -23,7 +24,8 @@ const HeroSection = () => {
                 to="encontrar" 
                 spy={true} 
                 smooth={true} 
-                duration={500} 
+                duration={500}
+                offset={-80} 
                 className="btn btn-outline-primary"
               >
                 Buscar Servicios
