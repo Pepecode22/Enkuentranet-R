@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
+import messageRoutes from './routes/message.js';
 import cors from 'cors';
 
 dotenv.config();
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // Rutas
 app.use('/api/auth', authRoutes);
+app.use('/api/message', messageRoutes);
 
 // Inicio del servidor
 const PORT = process.env.PORT || 5000;

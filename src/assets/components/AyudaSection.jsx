@@ -16,22 +16,35 @@ const AyudaSection = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validación simple
+
     if (!formData.name || !formData.email || !formData.message) {
       alert('Por favor completa todos los campos requeridos');
       return;
     }
-    
-    alert('Mensaje enviado con éxito');
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+
+    try {
+      const res = await fetch('http://localhost:5000/api/message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Mensaje enviado con éxito');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        alert(data.msg || 'Error al enviar el mensaje');
+      }
+    } catch (err) {
+      alert('Error de conexión');
+    }
   };
 
   return (
